@@ -17,7 +17,7 @@
   <body>
     <header>
         <div class="container">
-            <div class="top-nav">
+            <div class="top-bar">
                 <div class="location">
                     <a href="#"><img src="assets/images/Vector.svg" alt="">Ташкент</a>
                 </div>    
@@ -33,7 +33,7 @@
                             <a href="#">Условия рассрочки</a>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Рус</a>
+                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Рус<img src="assets/images/arrow.svg" alt=""></a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               <a class="dropdown-item" href="#">Узб</a>
                             </div>
@@ -41,17 +41,29 @@
                     </ul>
                 </div>
             </div> 
-        </div><!-- ./contaier -->
+        </div><!-- ./container -->
         <hr class="m-0">
         <div class="container">
-            <nav class="navbar navbar-light p-0">
+            <nav class="navbar p-0">
              <!-- <a class="navbar-brand">Navbar</a> -->
-              <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
+                <div class="search">
+                    <div class="categories-btn">
+                        <button class="catalog-btn d-flex">
+                            <div class="btn-burger">
+                                <span></span>
+                            </div>
+                            <span>Каталог</span> 
+                        </button>
+                    </div>  
+                    <div class="search-content">
+                        <form>
+                            <input class="search-form" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
             </nav>            
-        </div><!-- ./contaier -->
+        </div><!-- ./container -->
     </header>
     
 
