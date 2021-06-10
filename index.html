@@ -19,7 +19,7 @@
         <div class="container">
             <div class="top-bar">
                 <div class="location">
-                    <a href="#"><img src="assets/images/Vector.svg" alt="">Ташкент</a>
+                    <a href="#"><img src="assets/images/loc.svg" alt="">Ташкент</a>
                 </div>    
                 <div class="info-nav">
                     <ul class="info-nav-item">
@@ -39,35 +39,87 @@
                             </div>
                         </li>
                     </ul>
-                </div>
-            </div> 
+                </div><!-- ./info-nav -->
+            </div><!-- ./top-bar -->
         </div><!-- ./container -->
         <hr class="m-0">
         <div class="container">
-            <nav class="navbar p-0">
-             <!-- <a class="navbar-brand">Navbar</a> -->
-                <div class="search">
-                    <div class="categories-btn">
-                        <button class="catalog-btn d-flex">
-                            <div class="btn-burger">
-                                <span></span>
-                            </div>
-                            <span>Каталог</span> 
-                        </button>
-                    </div>  
-                    <div class="search-content">
-                        <form>
-                            <input class="search-form" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
+            <div class="header_panel">
+                <div class="logo">
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/images/logo.svg" alt="">
+                    </a>
                 </div>
-            </nav>            
+                <div class="search-content">
+                    <button class="catalog-btn">
+                        <span>Каталог</span>
+                    </button>
+                    <form>
+                        <div class="categorie-dropdown">
+                          <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Категории
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </div>
+                        </div>
+                        <input class="search-form" type="search" placeholder="Поиск по товарам" aria-label="Search">
+                        <button class="search-btn" type="submit"><img src="assets/images/search-icon.svg" alt="">Найти</button>
+                    </form>
+                </div><!-- ./search-content -->
+                <div class="search-nav">
+                    <ul class="search-nav-item">
+                        <li>
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.89 1.45015L20.89 5.45015C21.5697 5.78788 21.9996 6.48121 22 7.24015V16.7702C21.9996 17.5291 21.5697 18.2224 20.89 18.5602L12.89 22.5602C12.3267 22.8421 11.6634 22.8421 11.1 22.5602L3.10005 18.5602C2.42104 18.218 1.99476 17.5205 2.00005 16.7601V7.24015C2.00045 6.48121 2.43039 5.78788 3.11005 5.45015L11.11 1.45015C11.6707 1.17156 12.3294 1.17156 12.89 1.45015Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2.31982 6.16016L11.9998 11.0002L21.6798 6.16016" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M12 22.76V11" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 3.5L17 8.5" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <br>
+                                <span>Заказы</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8382 3.60987C19.8066 2.57786 18.4073 1.99805 16.9482 1.99805C15.489 1.99805 14.0897 2.57786 13.0582 3.60987L11.9982 4.66987L10.9382 3.60987C8.78978 1.46148 5.30655 1.46148 3.15817 3.60987C1.00978 5.75826 1.00978 9.24148 3.15817 11.3899L4.21817 12.4499L11.9982 20.2299L19.7782 12.4499L20.8382 11.3899C21.8702 10.3583 22.45 8.95901 22.45 7.49987C22.45 6.04073 21.8702 4.6414 20.8382 3.60987Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <br>
+                                <span>Избранное</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 23C9.10457 23 10 22.1046 10 21C10 19.8954 9.10457 19 8 19C6.89543 19 6 19.8954 6 21C6 22.1046 6.89543 23 8 23Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 23C21.1046 23 22 22.1046 22 21C22 19.8954 21.1046 19 20 19C18.8954 19 18 19.8954 18 21C18 22.1046 18.8954 23 20 23Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M5.67 6H23L21.32 14.39C21.1313 15.3402 20.2886 16.0186 19.32 16H8.75C7.73948 16.0086 6.88134 15.262 6.75 14.26L5.23 2.74C5.09962 1.7456 4.25291 1.00152 3.25 1H1" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                                <br>
+                                <span>Корзина</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 2.25C10.2375 2.25 11.25 3.2625 11.25 4.5C11.25 5.7375 10.2375 6.75 9 6.75C7.7625 6.75 6.75 5.7375 6.75 4.5C6.75 3.2625 7.7625 2.25 9 2.25ZM9 13.5C12.0375 13.5 15.525 14.9513 15.75 15.75H2.25C2.50875 14.94 5.97375 13.5 9 13.5ZM9 0C6.51375 0 4.5 2.01375 4.5 4.5C4.5 6.98625 6.51375 9 9 9C11.4862 9 13.5 6.98625 13.5 4.5C13.5 2.01375 11.4862 0 9 0ZM9 11.25C5.99625 11.25 0 12.7575 0 15.75V18H18V15.75C18 12.7575 12.0037 11.25 9 11.25Z" fill="#222222"/>
+                                </svg>
+                                <br>
+                                <span>Войти</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- ./search-nav -->
+            </div><!-- ./header_panel -->       
         </div><!-- ./container -->
     </header>
     
 
-
+   
 
 
 
@@ -95,7 +147,116 @@
 
 
     <footer>
-        
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <ul>
+                            <li class="pb-2">
+                                <span>Информация</span>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">О нас</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Условия использования</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Оплата и доставка</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Как заказать</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Вопросы и ответы</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <ul>
+                            <li class="pb-2">
+                                <span>Мой аккаунт</span>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Вход</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Регистрация</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Корзина</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Оформит заказ</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">Контакты</a>
+                            </li>
+                            <li class="pb-2">
+                                <a href="#">FAQs</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="tel d-flex">
+                            <div>
+                                <span class="pr-2">Телефон:</span>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="#">+99890 948-86-84</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">+99890 920-59-25</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">+99890 980-67-67</a>
+                                    </li>
+                                </ul>
+                            </div>                            
+                        </div>
+                        <ul>
+                            <li>
+                                <span class="pr-2">Эл.почта:</span> 
+                                <a href="#">bxsavdo@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3">
+                        <ul>
+                            <li>
+                                <span class="pr-2">Адрес</span> 
+                                <a href="#">Республика Узбекистан, город Ташкент, Юнусабад район, Шарафа Рашидова 40</a>
+                            </li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="#">
+                                <img src="assets/images/footer-social/facebook.svg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="assets/images/footer-social/instagram.svg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="assets/images/footer-social/twitter.svg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="assets/images/footer-social/google.svg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- ./row -->
+            </div><!-- ./container -->
+        </div><!-- ./footer -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8-fluid">
+                        <span>2021 XBSavdo. Все права защищены</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="assets/scripts/script.js"></script>
