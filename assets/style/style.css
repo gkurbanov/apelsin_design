@@ -277,11 +277,11 @@ ul.search-nav-item{
 /* Основные стили */
 
 /* Слайдер */
-.slick-slider{
+.slider-nav .slick-slider{
 	min-width: 0;
 }
 /* Ограничивающая оболочка */
-.slick-list{
+.slider-nav .slick-list{
 	overflow: hidden;
 }
 /* Лента слайдов */
@@ -289,6 +289,7 @@ ul.search-nav-item{
 	display: block;
 	align-items: center;
 	width: 80px !important;
+	overflow: hidden;
 }
 
 /* Конкретный слайдер */
@@ -305,7 +306,7 @@ ul.search-nav-item{
 	border-radius: 5px;
 }
 
-.slick-current img {
+.slider-nav .slick-current img {
 	border: 2px solid #FFCC00;
 	border-radius: 5px;
 }
@@ -320,14 +321,14 @@ ul.search-nav-item{
 }
 
 .slider-for{
-	width: 300px;
+	width: 280px;
 }
 
 .slider-for img{
 	object-fit: contain;
-	width: 400px;
-	height: 400px;
-	padding: 20px;
+	width: 300px;
+	height: 300px;
+	padding: 10px;
 	margin-left: 10px;
 }
 
@@ -335,6 +336,10 @@ ul.search-nav-item{
 /*---------------------
 	PRODUCT-INFO
 ---------------------*/
+
+.product-characters{
+	margin-bottom: 75px;
+}
 
 /* first-product-character */
 
@@ -352,27 +357,41 @@ ul.search-nav-item{
 .first-product-character li{
 	float: left;
 	display: flex;
-	margin-bottom: 10px;
-}
-
-.first-product-character a{
-	margin-right: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+	height: 45px;
 	color: #4F4F4F;
 	font-weight: 400;
 	font-size: 14px;
-	padding: 10px 15px;
+	margin: 0px 10px 10px 0px;
+}
+
+.first-product-character a:hover{
+	border: 2px solid #FFCC00;
+}
+
+.first-product-character a{
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	color: #4F4F4F;
+	font-weight: 400;
+	font-size: 14px;
+	width: 70px;
+	line-height: 40px;
+	text-align: center;
 }
 
 .first-product-character a:hover{
 	color: #4F4F4F;
 	text-decoration: none;
-	border: 1.9px solid #FFCC00;
 }
 
-.first-product-character .nav-link.active{
+.first-product-character .nav-pills .nav-link.active{
+	background-color: transparent;
+	color: #4F4F4F;
 	border: 2px solid #FFCC00;
+}
+
+.first-product-character .nav-pills .nav-link{
+	padding: 0;
 }
 
 /* second-product-character */
@@ -384,8 +403,8 @@ ul.search-nav-item{
 
 .second-product-character li{
 	float: left;
-	padding-right: 20px;
-	padding-bottom: 20px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 }
 
 .second-product-character h2{
@@ -395,16 +414,39 @@ ul.search-nav-item{
 }
 
 .second-product-character img{
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	object-fit: contain;
-	padding: 5px;
+	position: absolute;
+	margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
 }
 
-.second-product-character img:hover{
+.second-product-character .nav-pills .nav-link.active{
+	background: transparent;
 	border: 2px solid #FFCC00;
 	border-radius: 5px;
 }
+
+.second-product-character .nav-pills .nav-link{
+	padding: 0;
+}
+
+.second-product-character a{
+	height: 70px;
+	width: 70px;
+	position: relative;
+}
+
+.second-product-character a:hover{
+	border: 2px solid #FFCC00;
+	border-radius: 5px;
+}
+
+
 
 /* third-product-character */
 
@@ -509,6 +551,227 @@ ul.search-nav-item{
 	color: #2B2B2B;
 	background-color: #FFCC00;
 	border-radius: 12px;
+}
+
+.card-btn a{
+	width: 100%;
+	height: 48px;
+	line-height: 32px;
+	font-weight: 600;
+	font-size: 16px;
+	color: #333333;
+	background-color: #FFCC00;
+}
+
+.card-btn .btn:hover{
+	color: #333333;
+}
+
+.btn.installment{
+	border: 1px solid #cccccc;
+	background-color: transparent;
+}
+
+/*------------------
+	DESCRIPTIONS
+-------------------*/
+
+.brief-characteristics-title h3{
+	color: #000;
+	font-weight: 500;
+	font-size: 16px;
+	margin: 24px 0px;
+}
+
+.description{
+	margin-bottom: 60px;
+}
+
+/*------------------
+	SPECIDICATIONS
+-------------------*/
+
+.specifications{
+	margin-bottom: 16px;
+}
+
+.specifications-title{
+	margin-bottom: 24px;
+}
+
+.specifications-title h1{
+	font-weight: 700;
+	font-size: 24px;
+	color: #0A1D43;
+}
+
+.specifications-subtitle a{
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.specifications-subtitle a:hover{
+	text-decoration: none;
+}
+
+.specifications-info p{
+	font-weight: 400;
+	font-size: 12px;
+	color: #BDBDBD;
+	margin-bottom: 112px;
+}
+
+.specifications-subtitle p{
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+/* Read More Buttons */
+
+.hidden{
+	display: none;
+}
+
+#more{
+	display: none;
+}
+
+/*---------------------
+	ARTICLE-SLIDER
+---------------------*/
+
+/* Слайдер */
+.article-slider .slick-slider{
+	min-width: 0;
+}
+/* Ограничивающая оболочка */
+.article-slider .slick-list{
+	overflow: hidden;
+}
+/* Лента слайдов */
+.article-slider .slick-track{
+	display: flex;
+	align-items: center;
+}
+.article-slider{
+	position: relative;
+	margin-bottom: 110px;
+}
+
+.article-slider .slick-arrow{
+	position: absolute;
+	top: 40%;
+	font-size: 0;
+	width: 52px;
+	height: 52px;
+}
+
+.article-slider .slick-arrow.slick-prev{
+	left: -50px;
+	z-index: 1;
+	border: none;
+	box-shadow: 0px 0px 20px rgba(0, 51, 129, 0.1);
+	background: url(../images/slider-arrow.svg) no-repeat;
+	transform: rotate(180deg);
+	background-position: center;
+	border-radius: 50%;
+}
+
+.article-slider .slick-arrow.slick-next{
+	right: -50px;
+	z-index: 1;
+	border: none;
+	box-shadow: 0px 0px 20px rgba(0, 51, 129, 0.1);
+	background: url(../images/slider-arrow.svg) no-repeat;
+	background-position: center;
+	border-radius: 50%;
+}
+
+.slick-disabled{
+	display: none!important;
+}
+
+.article-slider-item{
+	padding: 24px 20px 12px 16px;
+}
+
+.article-slider-img{
+	width: 200px;
+	height: 200px;
+}
+
+.article-slider-img img{
+	width: 200px;
+	height: 200px;
+	object-fit: contain;
+}
+
+.article-slider-subtitle{
+	margin: 8px 0px;
+}
+
+.article-slider-subtitle span{
+	font-weight: 400;
+	font-size: 16px;
+	color: #8D95A4;
+}
+
+.article-slider-title a{
+	font-weight: 500;
+	font-size: 16px;
+	color: #203153;
+}
+
+.article-slider-title{
+	margin-bottom: 10px;
+}
+
+.article-slider-title a:hover{
+	text-decoration: none;
+}
+
+.article-slider-title h3{
+	font-weight: 500;
+	font-size: 16px;
+	color: #203153;
+}
+
+.article-slider-installment span{
+	font-weight: 400;
+	font-size: 12px;
+}
+.article-slider-installment-money{
+	padding: 2px 8px;
+	color: #2B2B2B;
+	background-color: #FFCC00;
+	border-radius: 12px;	
+}
+
+.article-slider-money-subtitle{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 24px;
+}
+
+.article-slider-money-subtitle span{
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.article-slider-money-subtitle span:first-child{
+	color: #B1B1B1;
+	text-decoration: line-through;
+}
+
+.article-slider-money-subtitle span:last-child{
+	color: #D43E5D;
+}
+
+.article-slider-money-title span{
+	font-weight: 600;
+	font-size: 20px;
+	color: #0A1D43;
 }
 
 /*---------------------
