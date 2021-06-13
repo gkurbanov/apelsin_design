@@ -33,6 +33,37 @@ $(document).ready(function(){
     });
 });
 
+/* Slider For Banner Slider */
+
+$(document).ready(function(){
+    $('.banner-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: false,
+        autoplay: false,
+        speed: 1000,
+        adaptiveHeight: false,
+        dots: false
+    });
+});
+
+/* Slider For Banner Slider */
+
+$(document).ready(function(){
+    $('.popular-product').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: true,
+        autoplay: false,
+        speed: 1000,
+        adaptiveHeight: false,
+        draggable: false,
+        dots: false
+    });
+});
+
 // Read More Specification
 
 const button = document.querySelector('#btn-specification-readmore');
@@ -64,3 +95,6 @@ function myFunction() {
       moreText.style.display = "inline";
     }
   }
+
+/* Slider Banner */
+
