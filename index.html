@@ -4,15 +4,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Style.css -->
-    <link rel="stylesheet" href="assets/style/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <!-- Style.css -->
+    <link rel="stylesheet" href="assets/style/style.css">
     <!-- Font Awesome -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
-
+    <!-- UI Slider -->
+    <link rel="stylesheet" href="assets/style/jquery-ui.min.css">
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="assets/style/jquery.fancybox.min.css">
     <title>Apelsin Store</title>
+    
   </head>
   <body>
     <header>
@@ -32,8 +36,8 @@
                         <li>
                             <a href="#">Условия рассрочки</a>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Рус<img src="assets/images/arrow.svg" alt=""></a>
+                        <li class="language-dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Рус</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               <a class="dropdown-item" href="#">Узб</a>
                             </div>
@@ -51,9 +55,16 @@
                     </a>
                 </div>
                 <div class="search-content">
-                    <button class="catalog-btn">
-                        <span>Каталог</span>
-                    </button>
+                    <div class="dropdown">
+                        <button class="catalog-btn dropdown-toggle" type="button" id="catalogDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Каталог
+                        </button>
+                        <div class="catalog dropdown-menu" aria-labelledby="catalogDropdownMenuButton">
+                          <a class="catalog-link dropdown-item" href="#!">Action</a>
+                          <a class="catalog-link dropdown-item" href="#!">Another action</a>
+                          <a class="catalog-link dropdown-item" href="#!">Something else here</a>
+                        </div>
+                      </div>
                     <form>
                         <div class="categorie-dropdown">
                           <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,13 +77,18 @@
                           </div>
                         </div>
                         <input class="search-form" type="search" placeholder="Поиск по товарам" aria-label="Search">
-                        <button class="search-btn" type="submit"><img src="assets/images/search-icon.svg" alt="">Найти</button>
+                        <button class="search-btn" type="submit">
+                            <svg width="17" height="17" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.9996 11.0001H12.2096L11.9296 10.7301C13.1296 9.33014 13.7496 7.42014 13.4096 5.39014C12.9396 2.61014 10.6196 0.390137 7.81965 0.0501373C3.58965 -0.469863 0.029649 3.09014 0.549649 7.32014C0.889649 10.1201 3.10965 12.4401 5.88965 12.9101C7.91965 13.2501 9.82965 12.6301 11.2296 11.4301L11.4996 11.7101V12.5001L15.7496 16.7501C16.1596 17.1601 16.8296 17.1601 17.2396 16.7501C17.6496 16.3401 17.6496 15.6701 17.2396 15.2601L12.9996 11.0001ZM6.99965 11.0001C4.50965 11.0001 2.49965 8.99014 2.49965 6.50014C2.49965 4.01014 4.50965 2.00014 6.99965 2.00014C9.48965 2.00014 11.4996 4.01014 11.4996 6.50014C11.4996 8.99014 9.48965 11.0001 6.99965 11.0001Z" fill="#212121"/>
+                            </svg>
+                            Найти
+                        </button>
                     </form>
                 </div><!-- ./search-content -->
                 <div class="search-nav">
                     <ul class="search-nav-item">
                         <li>
-                            <a href="#">
+                            <a href="#!">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.89 1.45015L20.89 5.45015C21.5697 5.78788 21.9996 6.48121 22 7.24015V16.7702C21.9996 17.5291 21.5697 18.2224 20.89 18.5602L12.89 22.5602C12.3267 22.8421 11.6634 22.8421 11.1 22.5602L3.10005 18.5602C2.42104 18.218 1.99476 17.5205 2.00005 16.7601V7.24015C2.00045 6.48121 2.43039 5.78788 3.11005 5.45015L11.11 1.45015C11.6707 1.17156 12.3294 1.17156 12.89 1.45015Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M2.31982 6.16016L11.9998 11.0002L21.6798 6.16016" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -84,16 +100,17 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a id="favorite" href="#!">
                                 <svg width="24" height="24" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M20.8382 3.60987C19.8066 2.57786 18.4073 1.99805 16.9482 1.99805C15.489 1.99805 14.0897 2.57786 13.0582 3.60987L11.9982 4.66987L10.9382 3.60987C8.78978 1.46148 5.30655 1.46148 3.15817 3.60987C1.00978 5.75826 1.00978 9.24148 3.15817 11.3899L4.21817 12.4499L11.9982 20.2299L19.7782 12.4499L20.8382 11.3899C21.8702 10.3583 22.45 8.95901 22.45 7.49987C22.45 6.04073 21.8702 4.6414 20.8382 3.60987Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                                 <br>
                                 <span>Избранное</span>
+                                <span id="favorite-count">1</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a id="shoping-cart" href="#!">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8 23C9.10457 23 10 22.1046 10 21C10 19.8954 9.10457 19 8 19C6.89543 19 6 19.8954 6 21C6 22.1046 6.89543 23 8 23Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M20 23C21.1046 23 22 22.1046 22 21C22 19.8954 21.1046 19 20 19C18.8954 19 18 19.8954 18 21C18 22.1046 18.8954 23 20 23Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -101,10 +118,11 @@
                             </svg>
                                 <br>
                                 <span>Корзина</span>
+                                <span id="shoping-cart-count">1</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#!">
                                 <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9 2.25C10.2375 2.25 11.25 3.2625 11.25 4.5C11.25 5.7375 10.2375 6.75 9 6.75C7.7625 6.75 6.75 5.7375 6.75 4.5C6.75 3.2625 7.7625 2.25 9 2.25ZM9 13.5C12.0375 13.5 15.525 14.9513 15.75 15.75H2.25C2.50875 14.94 5.97375 13.5 9 13.5ZM9 0C6.51375 0 4.5 2.01375 4.5 4.5C4.5 6.98625 6.51375 9 9 9C11.4862 9 13.5 6.98625 13.5 4.5C13.5 2.01375 11.4862 0 9 0ZM9 11.25C5.99625 11.25 0 12.7575 0 15.75V18H18V15.75C18 12.7575 12.0037 11.25 9 11.25Z" fill="#222222"/>
                                 </svg>
@@ -128,6 +146,31 @@
         </div>
     </section>
 
+    <div class="fixed-elem fixed-elem-hidden">
+        <div class="container">
+            <div class="fixed-elem-item">
+                <div class="fixed-elem-info d-flex">
+                    <div class="fixed-elem-img">
+                        <img src="assets/images/product-slider/iphone_11_green_2.jpg" alt="">
+                    </div>
+                    <div class="fixed-elem-name">
+                        <a href="#!">
+                            Apple / Смартфон iPhone 11 128GB (новая комплектация)
+                        </a>
+                    </div>
+                </div>
+                <div class="fixed-elem-pb">
+                    <div class="fixed-elem-price">
+                        <span>120 000 000 сум</span>
+                    </div>
+                    <div class="fixed-elem-basket">
+                        <a href="#product-characters">К корзине</a>
+                    </div>
+                </div>
+            </div><!-- ./fixed-elem-item -->
+        </div><!-- ./container -->
+    </div><!-- ./fixed-elem -->
+
     <section>
         <div class="container">
             <div class="row">
@@ -140,8 +183,46 @@
                             <ul>
                                 <li><span class="pr-1">SKU:</span>16023990</li>
                                 <li><span>12 отзывов</span></li>
-                                <li><span class="pr-2"><img src="assets/images/report.svg" alt=""></span><a href="#!    ">Поделиться</a></li>
-                                <li><span class="pr-2"><a href="#!"><img src="assets/images/search-nav-icon/heart.svg" alt=""></a></li>
+                                <li>
+                                    <div class="product-subtitle__dropdown">
+                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <svg class="mr-2" width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13 12.3998C12.3667 12.3998 11.8 12.6498 11.3667 13.0415L5.425 9.58317C5.46667 9.3915 5.5 9.19984 5.5 8.99984C5.5 8.79984 5.46667 8.60817 5.425 8.4165L11.3 4.9915C11.75 5.40817 12.3417 5.6665 13 5.6665C14.3833 5.6665 15.5 4.54984 15.5 3.1665C15.5 1.78317 14.3833 0.666504 13 0.666504C11.6167 0.666504 10.5 1.78317 10.5 3.1665C10.5 3.3665 10.5333 3.55817 10.575 3.74984L4.7 7.17484C4.25 6.75817 3.65833 6.49984 3 6.49984C1.61667 6.49984 0.5 7.6165 0.5 8.99984C0.5 10.3832 1.61667 11.4998 3 11.4998C3.65833 11.4998 4.25 11.2415 4.7 10.8248L10.6333 14.2915C10.5917 14.4665 10.5667 14.6498 10.5667 14.8332C10.5667 16.1748 11.6583 17.2665 13 17.2665C14.3417 17.2665 15.4333 16.1748 15.4333 14.8332C15.4333 13.4915 14.3417 12.3998 13 12.3998Z" fill="#8E8E8E"/>
+                                            </svg>Поделиться
+                                        </a>
+                                      
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" href="#!">
+                                            <svg class="float-left" width="24px" height="24px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill="#000" d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V28C32 30.2091 30.2091 32 28 32H4C1.79086 32 0 30.2091 0 28V4Z" fill="#D1D1D1"/>
+                                                <path d="M22.2224 20.4449L22.9335 16.0004H18.6668V12.8893C18.6668 11.6449 19.1113 10.6671 21.0668 10.6671H23.1113V6.57821C21.9557 6.40043 20.7113 6.22266 19.5557 6.22266C15.9113 6.22266 13.3335 8.44488 13.3335 12.4449V16.0004H9.3335V20.4449H13.3335V32.0004C15.1113 32.0004 16.8891 32.0004 18.6668 32.0004V20.4449H22.2224Z" fill="white"/>
+                                            </svg>
+                                            Facebook
+                                        </a>
+                                        <a class="dropdown-item" href="#!">
+                                            <svg class="float-left" width="24px" height="24px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill="#000" d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V28C32 30.2091 30.2091 32 28 32H4C1.79086 32 0 30.2091 0 28V4Z" fill="#D1D1D1"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M24.8821 12.1024C24.8899 12.3023 24.8925 12.5021 24.8925 12.7019C24.8925 18.7616 20.6298 25.7571 12.8348 25.7571C10.4404 25.7571 8.21385 24.994 6.33789 23.6948C6.6695 23.7311 7.00628 23.7585 7.34822 23.7585C9.33357 23.7585 11.1622 23.0224 12.6126 21.7869C10.7582 21.7596 9.19232 20.4241 8.65227 18.6072C8.91153 18.6617 9.17852 18.689 9.45156 18.689C9.83657 18.689 10.2104 18.6345 10.5687 18.5255C8.62813 18.1076 7.16649 16.2543 7.16649 14.0285C7.16649 14.0013 7.16649 13.9921 7.16649 13.974C7.7384 14.3101 8.393 14.519 9.08808 14.5462C7.94942 13.7195 7.20092 12.3113 7.20092 10.7215C7.20092 9.88567 7.40936 9.09524 7.77628 8.41387C9.86585 11.1939 12.9899 13.02 16.5118 13.2107C16.4395 12.8746 16.4024 12.5204 16.4024 12.1661C16.4024 9.63137 18.2999 7.57812 20.641 7.57812C21.8598 7.57812 22.9605 8.13239 23.7331 9.02271C24.7004 8.82284 25.6065 8.4413 26.4265 7.91437C26.1087 8.9864 25.4377 9.88562 24.5609 10.4489C25.4187 10.3399 26.237 10.0948 26.9958 9.73136C26.4265 10.6489 25.7099 11.4574 24.8821 12.1024Z" fill="white"/>
+                                            </svg>
+                                            Twitter
+                                        </a>
+                                        <a class="dropdown-item" href="#!">
+                                            <svg class="float-left" width="24px" height="24px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+                                                <path fill="#000" id="telegram-3" d="M19,24l-14,0c-2.761,0 -5,-2.239 -5,-5l0,-14c0,-2.761 2.239,-5 5,-5l14,0c2.762,0 5,2.239 5,5l0,14c0,2.761 -2.238,5 -5,5Zm-2.744,-5.148c0.215,0.153 0.491,0.191 0.738,0.097c0.246,-0.093 0.428,-0.304 0.483,-0.56c0.579,-2.722 1.985,-9.614 2.512,-12.09c0.039,-0.187 -0.027,-0.381 -0.173,-0.506c-0.147,-0.124 -0.351,-0.16 -0.532,-0.093c-2.795,1.034 -11.404,4.264 -14.923,5.567c-0.223,0.082 -0.368,0.297 -0.361,0.533c0.008,0.235 0.167,0.44 0.395,0.509c1.578,0.471 3.65,1.128 3.65,1.128c0,0 0.967,2.924 1.472,4.41c0.063,0.187 0.21,0.334 0.402,0.384c0.193,0.05 0.397,-0.002 0.541,-0.138c0.811,-0.765 2.064,-1.948 2.064,-1.948c0,0 2.381,1.746 3.732,2.707Zm-7.34,-5.784l1.119,3.692l0.249,-2.338c0,0 4.324,-3.9 6.79,-6.124c0.072,-0.065 0.082,-0.174 0.022,-0.251c-0.06,-0.077 -0.169,-0.095 -0.251,-0.043c-2.857,1.825 -7.929,5.064 -7.929,5.064Z"/>
+                                            </svg>
+                                            Telegram
+                                        </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                <label>  
+                                    <input type=checkbox id=red>
+                                    <svg width="24" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path id="shape" fill-rule="evenodd" clip-rule="evenodd" d="M20.8382 3.60987C19.8066 2.57786 18.4073 1.99805 16.9482 1.99805C15.489 1.99805 14.0897 2.57786 13.0582 3.60987L11.9982 4.66987L10.9382 3.60987C8.78978 1.46148 5.30655 1.46148 3.15817 3.60987C1.00978 5.75826 1.00978 9.24148 3.15817 11.3899L4.21817 12.4499L11.9982 20.2299L19.7782 12.4499L20.8382 11.3899C21.8702 10.3583 22.45 8.95901 22.45 7.49987C22.45 6.04073 21.8702 4.6414 20.8382 3.60987Z" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </label>
+                                </li>
                             </ul>
                         </div>
                     </div><!-- ./product-info -->
@@ -170,18 +251,26 @@
                                 <a href="#!">
                                     <img class="img-slick" src="assets/images/product-slider/Apple_iPhone_11_Yellow__3.jpg" alt="">
                                 </a>
-                            </div>            
+                            </div>             
                         </div>
                         <div class="slider-for">
-                            <img class="img-slick" src="assets/images/product-slider/iphone_11_green_2.jpg" alt="">
-                            <img class="img-slick" src="assets/images/product-slider/iphone_11_green_3.jpg" alt="">
-                            <img class="img-slick" src="assets/images/product-slider/Apple_iPhone_11_Yellow_2.jpg" alt="">
-                            <img class="img-slick" src="assets/images/product-slider/Apple_iPhone_11_Yellow__3.jpg" alt="">
+                            <a data-fancybox="gallery" href="assets/images/product-slider/iphone_11_green_2.jpg">
+                                <img class="img-slick" src="assets/images/product-slider/iphone_11_green_2.jpg" alt="">
+                            </a>
+                            <a data-fancybox="gallery" href="assets/images/product-slider/iphone_11_green_3.jpg">
+                                <img class="img-slick" src="assets/images/product-slider/iphone_11_green_3.jpg" alt="">
+                            </a>
+                            <a data-fancybox="gallery" href="assets/images/product-slider/Apple_iPhone_11_Yellow_2.jpg">
+                                <img class="img-slick" src="assets/images/product-slider/Apple_iPhone_11_Yellow_2.jpg" alt="">
+                            </a>
+                            <a data-fancybox="gallery" href="assets/images/product-slider/Apple_iPhone_11_Yellow__3.jpg">
+                                <img class="img-slick" src="assets/images/product-slider/Apple_iPhone_11_Yellow__3.jpg" alt="">
+                            </a>
                         </div>
                     </div><!-- ./slider -->
                 </div><!-- ./col-lg-4 -->
                 <div class="col-lg-5">
-                    <div class="product-characters">
+                    <div class="product-characters" id="product-characters">
                         <div class="first-product-character">
                             <h2>Встроенная память (ROM)</h2>
                             <ul class="nav nav-pills">
@@ -285,7 +374,7 @@
                                     </div>
                                 </div><!-- ./brief-characteristics-total -->
                                 <div class="brief-characteristics-link">
-                                    <a href="#!">Смотреть все характеристики</a>
+                                    <a href="#description">Смотреть все характеристики</a>
                                 </div>
                                 <div class="brief-characteristics-brand">
                                     <a href="#!"><img src="assets/images/1200px-Apple_logo_grey.svg.png" alt="">Все товары бренда Apple</a>
@@ -327,18 +416,103 @@
 
     <section>
         <div class="container">
+            <div class="col-lg-9 p-0">
+                <div class="merch">
+                    <div class="merch-item d-flex">
+                        <div class="merch-info d-flex">
+                            <a href="#!">
+                                <img src="https://get.wallhere.com/photo/white-cat-Asian-fur-nose-whiskers-skin-sleep-British-shorthair-eye-kitten-charming-fauna-close-up-cat-like-mammal-snout-small-to-medium-sized-cats-carnivoran-domestic-short-haired-cat-european-shorthair-muzzle-burmilla-turkish-angora-khao-manee-turkish-van-aegean-cat-american-wirehair-793671.jpg" alt="">
+                            </a>
+                            <div class="merch-name">
+                                <div>
+                                    <div class="merch-name-subtitle">Продавец</div>
+                                    <div class="merch-name-title">
+                                        <a href="#!">Mediapark</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ./merch-info -->
+                        <!-- <div class="merch-rating">
+                            123
+                        </div> -->
+                        <div class="merch-mag">
+                            <div class="merch-basket">
+                                <a href="#!">Корзина</a>
+                            </div>
+                            <div class="merch-mag-link">
+                                <a href="#!">Перейти в магазин</a>
+                            </div>
+                        </div>
+                    </div><!-- ./merch-item -->
+                    <div class="merch-item d-flex">
+                        <div class="merch-info d-flex">
+                            <a href="#!">
+                                <img src="https://get.wallhere.com/photo/white-cat-Asian-fur-nose-whiskers-skin-sleep-British-shorthair-eye-kitten-charming-fauna-close-up-cat-like-mammal-snout-small-to-medium-sized-cats-carnivoran-domestic-short-haired-cat-european-shorthair-muzzle-burmilla-turkish-angora-khao-manee-turkish-van-aegean-cat-american-wirehair-793671.jpg" alt="">
+                            </a>
+                            <div class="merch-name">
+                                <div>
+                                    <div class="merch-name-subtitle">Продавец</div>
+                                    <div class="merch-name-title">
+                                        <a href="#!">Mediapark</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ./merch-info -->
+                        <!-- <div class="merch-rating">
+                            123
+                        </div> -->
+                        <div class="merch-mag">
+                            <div class="merch-basket">
+                                <a href="#!">Корзина</a>
+                            </div>
+                            <div class="merch-mag-link">
+                                <a href="#!">Перейти в магазин</a>
+                            </div>
+                        </div>
+                    </div><!-- ./merch-item -->
+                    <div class="merch-item d-flex">
+                        <div class="merch-info d-flex">
+                            <a href="#!">
+                                <img src="https://get.wallhere.com/photo/white-cat-Asian-fur-nose-whiskers-skin-sleep-British-shorthair-eye-kitten-charming-fauna-close-up-cat-like-mammal-snout-small-to-medium-sized-cats-carnivoran-domestic-short-haired-cat-european-shorthair-muzzle-burmilla-turkish-angora-khao-manee-turkish-van-aegean-cat-american-wirehair-793671.jpg" alt="">
+                            </a>
+                            <div class="merch-name">
+                                <div>
+                                    <div class="merch-name-subtitle">Продавец</div>
+                                    <div class="merch-name-title">
+                                        <a href="#!">Mediapark</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ./merch-info -->
+                        <!-- <div class="merch-rating">
+                            123
+                        </div> -->
+                        <div class="merch-mag">
+                            <div class="merch-basket">
+                                <a href="#!">Корзина</a>
+                            </div>
+                            <div class="merch-mag-link">
+                                <a href="#!">Перейти в магазин</a>
+                            </div>
+                        </div>
+                    </div><!-- ./merch-item -->
+                </div><!-- ./merch -->
+            </div><!-- ./col-lg-9 -->
+        </div><!-- ./container -->
+    </section><!-- ./merch -->
+
+    <section>
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="description">
+                    <div class="description" id="description">
                         <div class="specifications-title">
                             <h1>Описание</h1>
                         </div>
-                        <div class="specifications-subtitle">
+                        <div class="description-subtitle">
                             <p>
-                                Lorem ipsum, dolor sit amet, consectetur adipisicing elit. Quibusdam, expedita. Excepturi est minima debitis, saepe consectetur dolores. Odit aliquid, voluptatum est officiis delectus, rem dolor<span id="dots">...</span> <span id="more"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum itaque doloremque voluptates facere quaerat libero sapiente nemo natus placeat amet accusamus quod numquam nobis maxime, at in fugiat nisi. Eveniet.</span>
-                                <br>
-                             </p>
-                            <a href="#!" onclick="myFunction()" id="myBtn">Развернуть описание</a>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum, id assumenda magnam cumque impedit ipsum omnis error quaerat? Eveniet blanditiis exercitationem provident quas sequi, necessitatibus dolorum? Dolore magnam eligendi sapiente nesciunt, accusamus quasi similique! Excepturi quaerat corporis deserunt fugiat possimus adipisci aliquam quisquam ratione asperiores delectus neque labore dolor dolorem magni reprehenderit autem soluta, sapiente ab et eum nisi quidem. Aut fugiat similique assumenda iste, eveniet expedita vel sed mollitia obcaecati ipsum labore minus ipsa odio deserunt nostrum ratione possimus.
+                            </p>
                         </div>
                     </div>   
                 </div>
@@ -437,7 +611,7 @@
                                     <span>6.43"/2400x1080 Пикс</span>
                                 </div>
                             </div><!-- ./brief-characteristics-total -->
-                            <a href="#!" id="btn-specification-readmore">
+                            <a href="#description" id="btn-specification-readmore">
                                 Развернуть характеристики
                             </a>
                         </div><!-- ./specifications-subtitle -->
@@ -865,13 +1039,13 @@
                             <div>
                                 <ul>
                                     <li>
-                                        <a href="#">+99890 948-86-84</a>
+                                        <a href="#">+99890 111-11-11</a>
                                     </li>
                                     <li>
-                                        <a href="#">+99890 920-59-25</a>
+                                        <a href="#">+99890 111-11-11</a>
                                     </li>
                                     <li>
-                                        <a href="#">+99890 980-67-67</a>
+                                        <a href="#">+99890 111-11-11</a>
                                     </li>
                                 </ul>
                             </div>                            
@@ -879,7 +1053,7 @@
                         <ul>
                             <li>
                                 <span class="pr-2">Эл.почта:</span> 
-                                <a href="#">bxsavdo@gmail.com</a>
+                                <a href="#">11111111@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -912,20 +1086,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8-fluid">
-                        <span>2021 XBSavdo. Все права защищены</span>
+                        <span>2021 Apelsin Markets. Все права защищены</span>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
+    
     <!-- jQuery.js -->
     <script src="assets/scripts/jquery-3.6.0.min.js"></script>
+    <!-- RangeSlider -->
+    <script src="assets/scripts/jquery-ui.min.js"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
+    <script src="assets/scripts/bootstrap.bundle.min.js"></script>
     <!-- Slick.js -->
     <script src="assets/scripts/slick.min.js"></script>
+    <!-- FancyBox -->
+    <script src="assets/scripts/jquery.fancybox.min.js"></script>
+    <!-- ReadMore -->
+    <script src="assets/scripts/readmore.min.js"></script>
     <!-- JavaScript.js -->
     <script src="assets/scripts/script.js"></script>
 </body>

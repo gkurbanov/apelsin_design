@@ -4,10 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- UI Slider -->
+    <link rel="stylesheet" href="assets/style/jquery-ui.min.css">
     <!-- Style.css -->
     <link rel="stylesheet" href="assets/style/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Font Awesome -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
@@ -32,8 +35,8 @@
                         <li>
                             <a href="#">Условия рассрочки</a>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Рус<img src="assets/images/arrow.svg" alt=""></a>
+                        <li class="language-dropdown">
+                            <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Рус</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               <a class="dropdown-item" href="#">Узб</a>
                             </div>
@@ -90,6 +93,7 @@
                                 </svg>
                                 <br>
                                 <span>Избранное</span>
+                                <span id="favorite-count">1</span>
                             </a>
                         </li>
                         <li>
@@ -101,6 +105,7 @@
                             </svg>
                                 <br>
                                 <span>Корзина</span>
+                                <span id="shoping-cart-count">1</span>
                             </a>
                         </li>
                         <li>
@@ -187,8 +192,51 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="filter__block filter__block--slider">
+                            <div class="side-filter-title">
+                                <h3>Цена</h3>
+                            </div>
+                            <div class="filter__slider">
+                                <div id="filter__range"></div>
+                            </div>
+                            <div class="filter__cost table d-flex">
+                                <div class="table-cell mr-1">
+                                    <input id="priceMin" type="number" onkeypress="validate(event)" value="от 5000" class="form-control shadow-none">
+                                </div>
+                                <div class="table-cell">
+                                    <input id="priceMax" type="number" onkeypress="validate(event)" value="до 12000000" class="form-control shadow-none">
+                                </div>
+                            </div>
+                        </div><!-- ./filter-block -->
+                        <div class="side-filter-title">
+                            <h3>Производитель</h3>
+                        </div>
+                        <div class="side-filter-checkbox">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Apple</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                                <label class="form-check-label" for="exampleCheck2">Apple</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                                <label class="form-check-label" for="exampleCheck3">Apple</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck4">
+                                <label class="form-check-label" for="exampleCheck4">Apple</label>
+                            </div>
+                            <div class="form-check hide">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck5">
+                                <label class="form-check-label" for="exampleCheck5">Apple</label>
+                            </div>
+                            <a href="#!" id="form-checkbox-btn">Показать всё</a>
+                        </div>
                     </div><!-- ./side-filter -->
-                </div><!-- ./col-lg-4 -->
+                </div><!-- ./col-lg-3 -->
+
                 <div class="col-lg-9">
                     <div class="popular-product-title">
                         <h1>Популярные предложения</h1>
@@ -221,7 +269,7 @@
                         <div class="popular-product-item">
                             <div class="popular-product-img">
                                 <a href="#!">
-                                    <img src="https://get.wallhere.com/photo/white-cat-Asian-fur-nose-whiskers-skin-sleep-British-shorthair-eye-kitten-charming-fauna-close-up-cat-like-mammal-snout-small-to-medium-sized-cats-carnivoran-domestic-short-haired-cat-european-shorthair-muzzle-burmilla-turkish-angora-khao-manee-turkish-van-aegean-cat-american-wirehair-793671.jpg" alt="">
+                                    <img src="assets/images/popular-product-slider/culer.png" alt="">
                                 </a>
                             </div>
                             <div class="popular-product-info">
@@ -291,11 +339,345 @@
                             </div>
                         </div><!-- ./popular-product-item -->
                     </div><!-- ./popular-product -->
+
                     <div class="row">
-                        <div class="col-lg-12">
-                            122
-                        </div>
-                    </div>
+                        <div class="col-lg-4">
+                            <div class="filter dropdown show">
+                                <a class="filter-btn dropdown-toggle" href="#!" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <span class="filter-btn-link">По популярности</span>
+                                  <span class="filter-btn-arrow"><img src="assets/images/filter-arrow.svg" alt=""></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                  <a class="dropdown-item" href="#!">По рейтингу</a>
+                                  <a class="dropdown-item" href="#!">По новизне</a>
+                                  <a class="dropdown-item" href="#!">По стоимости</a>
+                                </div>
+                            </div><!-- ./filter -->
+                        </div><!-- ./col-lg-4 -->
+                    </div><!-- ./row ./dropdown -->
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/product-slider/iphone_11_green_2.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->  
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/akum.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/headphone.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/powerb.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 --> 
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/product-slider/iphone_11_green_2.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->  
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/akum.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/headphone.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/powerb.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/headphone.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                        <div class="col-lg-3">
+                            <div class="products">
+                                <div class="product-item">
+                                    <div class="product-item-img">
+                                        <a href="#!">
+                                            <img src="assets/images/products/powerb.png" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-item-subtitle">
+                                        <span>Для офиса</span>
+                                    </div>
+                                    <div class="product-item-title">
+                                        <a href="#!">
+                                            <h3 class="product-item-name">Компьютерное кресло Cougar Argo Orange</h3>
+                                        </a>
+                                    </div>
+                                    <div class="product-item-installment">
+                                        <span class="product-item-installment-money">1 000 000 сум</span>
+                                        <span class="product-item-installment-time text-black-50">x 12 мес</span>
+                                    </div>
+                                    <div class="product-item-money">
+                                        <div class="product-item-money-subtitle">
+                                            <span>125000000</span>
+                                            <span>-5%</span>
+                                        </div>
+                                        <div class="product-item-money-title">
+                                            <span>120 650 000 сум</span>
+                                        </div>
+                                    </div>
+                                </div><!-- ./product-item -->
+                            </div><!-- ./products --> 
+                        </div><!-- ./col-lg-3 -->
+                    </div><!-- ./row ./products -->
                 </div><!-- ./col-lg-9 -->
             </div><!-- ./row -->
         </div><!-- ./container -->
@@ -360,13 +742,13 @@
                             <div>
                                 <ul>
                                     <li>
-                                        <a href="#">+99890 948-86-84</a>
+                                        <a href="#">+99890 111-11-11</a>
                                     </li>
                                     <li>
-                                        <a href="#">+99890 920-59-25</a>
+                                        <a href="#">+99890 111-11-11</a>
                                     </li>
                                     <li>
-                                        <a href="#">+99890 980-67-67</a>
+                                        <a href="#">+99890 111-11-11</a>
                                     </li>
                                 </ul>
                             </div>                            
@@ -374,7 +756,7 @@
                         <ul>
                             <li>
                                 <span class="pr-2">Эл.почта:</span> 
-                                <a href="#">bxsavdo@gmail.com</a>
+                                <a href="#">11111111@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -407,21 +789,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8-fluid">
-                        <span>2021 XBSavdo. Все права защищены</span>
+                        <span>2021 Apelsin Market. Все права защищены</span>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- jQuery.js -->
-    <script src="assets/scripts/jquery-3.6.0.min.js"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="assets/scripts/jquery-3.6.0.min.js"></script>
+    <script src="assets/scripts/bootstrap.bundle.min.js"></script>
+    <!-- RangeSlider -->
+    <script src="assets/scripts/jquery-ui.min.js"></script>
     <!-- Slick.js -->
     <script src="assets/scripts/slick.min.js"></script>
     <!-- JavaScript.js -->
     <script src="assets/scripts/script.js"></script>
+    
 </body>
 </html>
