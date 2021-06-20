@@ -1752,6 +1752,12 @@ span.shoping-cart__products__select-product__installment{
 /*-----------------------------------------------------------------------------------
 	Home.html
 -----------------------------------------------------------------------------------*/
+
+.home-page-slider{
+	margin-top: 64px;
+	margin-bottom: 70px;
+}
+
 .home-page-slider .slick-slider{
 	min-width: 0;
 }
@@ -1766,17 +1772,50 @@ span.shoping-cart__products__select-product__installment{
 }
 
 .home-page-slider__item{
+	position: relative;
+	margin: 0px 5px;
 	height: 360px;
 }
 
 .home-page-slider__item__info{
 	position: absolute;
-	top: 20%;
-	left: 0;
+	z-index: 2;
+	left: 55px;
+	top: 30%;
+	line-height: 30px;	
+}
+
+.home-page-slider__item__info__title span{
+	font-weight: 600;
+	font-size: 34px;
+	color: #0A1D43;
+}
+
+.home-page-slider__item__info__subtitle span{
+	font-weight: 400;
+	font-size: 16px;
+	color: #828282;
+}
+
+.home-page-slider__item__info__btn{
+	margin-top: 32px;
+}
+
+.home-page-slider__item__info__btn button{
+	border: none;
+	border-radius: 4px;
+	background-color: var(--main-bg-color);
+	color: var(--main-text-color);
+	width: 148px;
+	height: 40px;
+	font-weight: 500;
+	font-size: 16px;
+
 }
 
 .home-page-slider__item__img img{
 	position: relative;
+	z-index: 1;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -1791,10 +1830,35 @@ span.shoping-cart__products__select-product__installment{
 	position: absolute;
 	z-index: 1;
 	top: 40%;
+	font-size: 0;
+	border: 0;
+	width: 52px;
+	height: 52px;
 }
 
 .home-page-slider .slick-arrow.slick-next{
-	right: 0;
+	right: -15px;
+	z-index: 1;
+	border: none;
+	box-shadow: 0px 0px 20px rgba(0, 51, 129, 0.1);
+	background: url(../images/slider-arrow.svg) no-repeat;
+	background-position: center;
+	border-radius: 50%;
+}
+
+.home-page-slider .slick-arrow.slick-prev{
+	left: -15px;
+	z-index: 1;
+	border: none;
+	box-shadow: 0px 0px 20px rgba(0, 51, 129, 0.1);
+	background: url(../images/slider-arrow.svg) no-repeat;
+	transform: rotate(180deg);
+	background-position: center;
+	border-radius: 50%;
+}
+
+.home-page-slider .slick-disabled{
+	display: none!important;
 }
 
 .home-page-slider .slick-dots{
@@ -1810,8 +1874,108 @@ span.shoping-cart__products__select-product__installment{
 	border: none;
 	border-radius: 4px;
 	margin-right: 10px;
+	transition: .2s;
 }
 
+.home-page-slider .slick-dots .slick-active button{
+	background-color: #828282;
+}
+
+/* Profit Slider */
+.profit__title{
+	margin-bottom: 32px;
+}
+
+.profit__title span{
+	font-weight: 600;
+	font-size: 34px;
+}
+
+.profit__slider{
+	position: relative;
+	z-index: 1;
+	margin-bottom: 70px;
+}
+
+.profit__slider .slick-slider{
+	min-width: 0;
+}
+
+.profit__slider .slick-list{
+	overflow: hidden;
+}
+
+.profit__slider .slick-track{
+	display: flex;
+	align-items: center;
+}
+
+.profit__slider__item{
+	width: 273px;
+	margin-right: 32px;
+}
+
+.profit__slider__item__img img{
+	width: 273px;
+	height: 177px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.profit__slider__item__info__term span{
+	font-weight: 400;
+	font-size: 14px;
+	color: #6A6A6A;
+}
+
+.profit__slider__item__info__text{
+	display: block;
+	display: -webkit-box;
+	max-width: 273px;
+	-webkit-line-clamp: 2; /* количество строк */
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.profit__slider__item__info__text a{
+	font-weight: 500;
+	font-size: 16px;
+	color: #000;
+}
+
+.profit__slider .slick-arrow{
+	position: absolute;
+	z-index: 2;
+	top: 30%;
+	font-size: 0;
+	border: 0;
+	width: 52px;
+	height: 52px;
+}
+
+.profit__slider .slick-arrow.slick-next{
+	right: -30px;
+	border: none;
+	box-shadow: 0px 0px 20px rgba(0, 51, 129, 0.1);
+	background: url(../images/slider-arrow.svg) no-repeat;
+	background-position: center;
+	border-radius: 50%;
+}
+
+.profit__slider .slick-arrow.slick-prev{
+	left: -30px;
+	border: none;
+	box-shadow: 0px 0px 20px rgba(0, 51, 129, 0.1);
+	background: url(../images/slider-arrow.svg) no-repeat;
+	transform: rotate(180deg);
+	background-position: center;
+	border-radius: 50%;
+}
+
+.profit__slider .slick-disabled{
+	display: none!important;
+}
 
 /*---------------------
 		FOOTER

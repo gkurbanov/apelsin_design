@@ -60,16 +60,35 @@ $(document).ready(function () {
 
     /* Home Page Slider */
     $('.home-page-slider').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      infinite: false,
-      arrows: true,
-      autoplay: false,
-      speed: 1000,
-      adaptiveHeight: false,
-      draggable: true,
-      dots: true
-  });
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: true,
+        autoplay: false,
+        speed: 600,
+        adaptiveHeight: false,
+        draggable: true,
+        waitForAnimate: false,
+        dots: true
+    });
+
+    /* Profit Slider */
+
+    $('.profit__slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: true,
+        autoplay: false,
+        speed: 600,
+        adaptiveHeight: false,
+        draggable: true,
+        waitForAnimate: false,
+        variableWidth: true,
+        dots: false
+    });
+
+
 
     // ReadMore.Js
     $('.description-subtitle').readmore({
